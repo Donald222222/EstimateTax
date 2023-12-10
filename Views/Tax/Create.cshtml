@@ -17,7 +17,7 @@
     <label>Income:</label>
     <p>
 
-            @Html.TextBoxFor(m => m.income, new { @class = "form-control  col-sm-4 ", })
+            @Html.TextBoxFor(m => m.income, new { @class = "form-control  col-sm-4 ", @placeholder = "Enter Income" })
         @Html.ValidationMessageFor(m => m.income, "", new { @class = "text-danger" })
 
            
@@ -27,7 +27,7 @@
 
 
 
-            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control col-sm-4" })
+            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control col-sm-4", @placeholder = "Enter PostalCode" })
         @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
     </p>
 
