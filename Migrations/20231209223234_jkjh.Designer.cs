@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstimateTax.Migrations
 {
     [DbContext(typeof(DataContexts))]
-    [Migration("20231205212538_ada")]
-    partial class ada
+    [Migration("20231209223234_jkjh")]
+    partial class jkjh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

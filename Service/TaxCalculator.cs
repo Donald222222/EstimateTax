@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using EstimateTax.Repository;
+using EstimateTax.Extentions;
 
 namespace EstimateTax.Service
 {
@@ -28,28 +29,28 @@ namespace EstimateTax.Service
             var taxtype = _data.GetTaxTypeAsyc(PostalCode).ToString();
             var taxBrakets = _data.GetTaxBrakets();
             double tax = 0;
-            if (taxtype == "Progressive")
+            if (taxtype == Type_of_tax.ProgressiveTax)
             {
 
                 foreach (var item in taxBrakets)
                 {
                     double TaxCalculato = Math.Min(item.To, Math.Max(income - item.From, 0));
-                    tax += TaxCalculato * item.Rate;
+                    tax += TaxCalculato * item.Rate/100;
 
                 }
 
             }
 
 
-            else if (taxtype == "Flat Value")
+            else if (taxtype == Type_of_tax.FlatValueTax)
             {
-                tax = _data.GetFix_FlatValueTax(income);
+                tax = (double)_data.GetFix_FlatValueTax(income);
 
                 tax = _data.GetVarying_FlatValueTax(income);
 
             }
 
-            else if (taxtype == "Flat rate")
+            else if (taxtype == Type_of_tax.FlatRateTax)
             {
                 tax = _data.GetFlateRate(income);
 

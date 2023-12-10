@@ -6,32 +6,36 @@
 }
 
 
+<body style="background-color: white">
 
 
-<label>Total tax :</label>  @ViewBag.Calculate
+
+
+
 @using (Html.BeginForm("Index", "Tax", FormMethod.Get, new { enctype = "multipart/form-data" }))
 {
     <label>Income:</label>
     <p>
 
-        @Html.TextBoxFor(m => m.income, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.income)
+            @Html.TextBoxFor(m => m.income, new { @class = "form-control  col-sm-4 ", })
+        @Html.ValidationMessageFor(m => m.income, "", new { @class = "text-danger" })
 
-
+           
     </p>
     <label> PostalCode</label>
     <p>
 
 
-        @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.PostalCode)
+
+            @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control col-sm-4" })
+        @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
     </p>
 
     <p>
         <input class="radius title" name="Calculate" type="submit" value="calculate">
     </p>
 }
-</div>
+</body>
 
 <script src="~/Scripts/jquery.validate.min.js"></script>
 

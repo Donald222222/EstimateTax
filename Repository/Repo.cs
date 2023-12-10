@@ -1,5 +1,6 @@
 ﻿using EstimateTax.DataContext;
 using EstimateTax.Models;
+using EstimateTax.NullChecks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace EstimateTax.Repository
         {
             var  Ratetax = _data.FlatValues.Where(x => x.Fix_Flatate_per_Income > income)
                 
-            .Select(x => x.rate).Single();
+            .Select(x => x.rate/100).Single();
 
             var CalculateTax2 = Ratetax * income ;
             return CalculateTax2;
@@ -38,7 +39,7 @@ namespace EstimateTax.Repository
         public double GetFlateRate( double income)
         {
             double taxate = _data.FlatRates.Select(x => x.FlatRate_Per_Income).Single();
-            double Caculated = taxate * income;
+            double Caculated = (taxate * income)/100;
             return Caculated;
             
         }
@@ -51,9 +52,18 @@ namespace EstimateTax.Repository
 
         public string GetTaxTypeAsyc( string PostalCode)
         {
-            var tax = _data.TaxInfos.Where(x => x.PostalCode == PostalCode).Select(x => x.TaxTypes).FirstOrDefault();
-            return tax;
-
+          
+             var tax = _data.TaxInfos.Where(x => x.PostalCode == PostalCode).Select(x => x.TaxTypes).FirstOrDefault();
+            if (tax ==null)
+            {
+                return new InvalidPostalCode().GetTaxTypeAsyc(PostalCode);
+            }
+            else
+            {
+                return tax;
+            }         
+                   
+           
         }
 
      

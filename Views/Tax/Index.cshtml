@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+
+    <h3 class=" input-group-text col-sm-3 style=" color:Green; font-style:italic;">
+        Tolal Tax
+    </h3>
+    @ViewBag.Calculate
+
+
+    <h3 class=" input-group-text col-sm-3 style=" color:Green; font-style:italic;">
+        Tax Type
+    </h3>
+
+    @ViewBag.TaxType 
+</div>
+
+@Html.ActionLink("Back", "Create", null)
+
+
