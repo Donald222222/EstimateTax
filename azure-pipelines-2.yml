@@ -29,7 +29,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name:DESKTOP-MFQTMN
+      name: Default
      
     steps:
     - task: Docker@2
