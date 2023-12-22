@@ -52,7 +52,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     pool:
-      vmImage: Don
+      name: 'Default'
+      vmImage: don
     environment: 'Donald222222EstimateTax-1689.don'
     strategy:
       runOnce:
