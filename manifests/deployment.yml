@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: don 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: don
+  template:
+    metadata:
+      labels:
+        app: don 
+    spec:
+      containers:
+        - name: don 
+          image: taxegistry.azurecr.io/don
+          ports:
+          - containerPort: 80
