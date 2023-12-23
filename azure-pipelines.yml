@@ -40,6 +40,7 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
+        buildContext:  $(build.SorcesDirectory)/EstimateTax
         tags: |
           $(tag)
 
@@ -73,8 +74,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/EstimateTax.yml
+              
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
