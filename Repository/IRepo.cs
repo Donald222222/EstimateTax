@@ -13,6 +13,7 @@ namespace EstimateTax.Repository
         double GetFix_FlatValueTax( double income);
         double GetVarying_FlatValueTax(double income);
         double GetFlateRate(double income);
+        double PrograssiveTax(double income);
 
 
     }
