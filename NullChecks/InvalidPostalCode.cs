@@ -31,5 +31,10 @@ namespace EstimateTax.NullChecks
         {
             throw new System.NotImplementedException();
         }
+
+        public double PrograssiveTax(double income)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

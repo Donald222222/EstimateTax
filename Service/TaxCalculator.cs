@@ -27,17 +27,16 @@ namespace EstimateTax.Service
 
 
             var taxtype = _data.GetTaxTypeAsyc(PostalCode).ToString();
-            var taxBrakets = _data.GetTaxBrakets();
+     
+      
+
+         
+
             double tax = 0;
             if (taxtype == Type_of_tax.ProgressiveTax)
             {
 
-                foreach (var item in taxBrakets)
-                {
-                    double TaxCalculato = Math.Min(item.To, Math.Max(income - item.From, 0));
-                    tax += TaxCalculato * item.Rate/100;
-
-                }
+                tax = _data.PrograssiveTax(income);
 
             }
 

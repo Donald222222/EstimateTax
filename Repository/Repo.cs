@@ -66,6 +66,20 @@ namespace EstimateTax.Repository
            
         }
 
-     
+        public double PrograssiveTax(double income)
+        {
+
+            var taxBrakets = this.GetTaxBrakets();
+
+
+            double tax = 0;
+            foreach (var item in taxBrakets)
+            {
+                double TaxCalculato = Math.Min(item.To, Math.Max(income - item.From, 0));
+                tax += TaxCalculato * item.Rate / 100;
+
+            }
+            return tax;
+        }
     }
 }
