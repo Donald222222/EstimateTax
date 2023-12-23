@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>9f58337c-c2ca-48fc-ac88-749d5759b212</UserSecretsId>
+    <UserSecretsId>4f5e174d-3de3-4058-8d4a-c3582212212e</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
